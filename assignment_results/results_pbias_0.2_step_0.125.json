@@ -1,0 +1,372 @@
+{
+    "parameters": {
+        "p_bias": 0.2,
+        "max_step_size": 0.125,
+        "runs": 20
+    },
+    "stats": {
+        "intervals": [
+            400,
+            800,
+            1200,
+            1600,
+            2000
+        ],
+        "success_rate_percent": [
+            15.0,
+            15.0,
+            15.0,
+            15.0,
+            25.0
+        ],
+        "average_cost": [
+            1.350961959041171,
+            1.350961959041171,
+            1.350961959041171,
+            1.350961959041171,
+            1.5663629622155415
+        ]
+    },
+    "raw_data": [
+        {
+            "run_id": 0,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 1,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 2,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 3,
+            "success": [
+                1,
+                1,
+                1,
+                1,
+                1
+            ],
+            "costs": [
+                1.3545600891238956,
+                1.3545600891238956,
+                1.3545600891238956,
+                1.3545600891238956,
+                1.3545600891238956
+            ]
+        },
+        {
+            "run_id": 4,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 5,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 6,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 7,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 8,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 9,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 10,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 11,
+            "success": [
+                1,
+                1,
+                1,
+                1,
+                1
+            ],
+            "costs": [
+                1.4497587400479905,
+                1.4497587400479905,
+                1.4497587400479905,
+                1.4497587400479905,
+                1.4497587400479905
+            ]
+        },
+        {
+            "run_id": 12,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 13,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                1.8119220121459612
+            ]
+        },
+        {
+            "run_id": 14,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 15,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 16,
+            "success": [
+                1,
+                1,
+                1,
+                1,
+                1
+            ],
+            "costs": [
+                1.248567047951627,
+                1.248567047951627,
+                1.248567047951627,
+                1.248567047951627,
+                1.248567047951627
+            ]
+        },
+        {
+            "run_id": 17,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "run_id": 18,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                1.9670069218082333
+            ]
+        },
+        {
+            "run_id": 19,
+            "success": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "costs": [
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        }
+    ]
+}

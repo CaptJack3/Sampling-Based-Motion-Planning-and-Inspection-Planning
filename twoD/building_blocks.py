@@ -16,22 +16,25 @@ class BuildingBlocks2D(object):
         # visibility distance for the robot's end-effector. Farther than that, the robot won't see any points.
         self.vis_dist = 60.0
 
+    def sample_random_config(self, goal_prob, goal):
+        if np.random.rand() <= goal_prob:
+            return np.array(goal)
+        else:
+            sampled_conf = np.random.uniform(-np.pi, np.pi, self.dim)
+            return sampled_conf
+
     def compute_distance(self, prev_config, next_config):
         '''
         Compute the euclidean distance betweeen two given configurations.
         @param prev_config Previous configuration.
         @param next_config Next configuration.
         '''
-        # TODO: HW2 4.2.1
-        pass
-    def sample_random_config(self, goal_prob, goal):
-        """
-        Sample a random configuration in the configuration space. With probability goal_prob, return the goal configuration.
-        @param goal_prob Probability of returning the goal configuration.
-        @param goal The goal configuration.
-        """
-         # TODO: HW2 4.2.1
-        pass
+        # Compute forward kinematics to find the end-effector positions
+        prev_ee_pos = self.compute_forward_kinematics(prev_config)[-1]  # End-effector position for prev_config
+        next_ee_pos = self.compute_forward_kinematics(next_config)[-1]  # End-effector position for next_config
+        # Compute the Euclidean distance between the two end-effector positions
+        return np.linalg.norm(prev_ee_pos - next_ee_pos)
+
     def compute_path_cost(self, path):
         totat_cost = 0
         for i in range(len(path) - 1):
@@ -43,8 +46,17 @@ class BuildingBlocks2D(object):
         Compute the 2D position (x,y) of each one of the links (including end-effector) and return.
         @param given_config Given configuration.
         '''
-        # TODO: HW2 4.2.2
-        pass
+        # positions are 2D points + angle (3 dimensions) for each of the links of the robot
+        positions = []
+        total_angle = 0
+        x, y = 0, 0  # start at the origin
+
+        for i in range(self.dim):
+            total_angle = self.compute_link_angle(total_angle, given_config[i])
+            x += self.links[i] * np.cos(total_angle)
+            y += self.links[i] * np.sin(total_angle)
+            positions.append([x, y])
+        return np.array(positions)
 
     def compute_ee_angle(self, given_config):
         '''
@@ -75,8 +87,23 @@ class BuildingBlocks2D(object):
         Verify that the given set of links positions does not contain self collisions.
         @param robot_positions Given links positions.
         '''
-        # TODO: HW2 4.2.3
-        pass
+        x0, y0 = 0, 0  # start at the origin
+        robot_links = [LineString([Point(x0, y0), Point(robot_positions[0][0], robot_positions[0][1])])]
+        # Generate LineStrings for each link
+        robot_links[1::] = [LineString([Point(robot_positions[i][0], robot_positions[i][1]),
+                                        Point(robot_positions[i + 1][0], robot_positions[i + 1][1])]) for i in
+                            range(len(robot_positions) - 1)]
+
+        # Check for intersections between each pair of links
+        for i in range(len(robot_links)):
+            for j in range(i + 1, len(robot_links)):
+                # Skip checking adjacent links
+                if j == i + 1:
+                    continue
+                if robot_links[i].crosses(robot_links[j]):  # Self-collision detection
+                    return False
+
+        return True  # No self-collision detected
 
     def config_validity_checker(self, config):
         '''
@@ -239,8 +266,16 @@ class BuildingBlocks2D(object):
         @param points1 list of inspected points.
         @param points2 list of inspected points.
         '''
-        # TODO: HW3 2.3.2
-        pass
+        # If one of them is empty, the union is just the other.
+        if points1.size == 0:
+            return points2
+        if points2.size == 0:
+            return points1
+
+        # Stack them
+        combined = np.concatenate([points1, points2], axis=0)
+        union = np.unique(combined, axis=0)
+        return union
 
     def compute_coverage(self, inspected_points):
         '''

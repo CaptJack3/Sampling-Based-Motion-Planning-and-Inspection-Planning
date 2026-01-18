@@ -1,0 +1,4 @@
+Path cost: 1.1355672074658196 
+Compute time: 763.9204719000008 seconds 
+Iterations: 4000 
+Vertices in tree: 3010 
